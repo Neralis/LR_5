@@ -1,0 +1,10 @@
+C:\Users\ip521-14\source\repos\LR_5\LR_5\bin\Debug\LR_5.exe.config
+C:\Users\ip521-14\source\repos\LR_5\LR_5\bin\Debug\LR_5.exe
+C:\Users\ip521-14\source\repos\LR_5\LR_5\bin\Debug\LR_5.pdb
+C:\Users\ip521-14\source\repos\LR_5\LR_5\obj\Debug\LR_5.csprojAssemblyReference.cache
+C:\Users\ip521-14\source\repos\LR_5\LR_5\obj\Debug\LR_5.Form1.resources
+C:\Users\ip521-14\source\repos\LR_5\LR_5\obj\Debug\LR_5.Properties.Resources.resources
+C:\Users\ip521-14\source\repos\LR_5\LR_5\obj\Debug\LR_5.csproj.GenerateResource.cache
+C:\Users\ip521-14\source\repos\LR_5\LR_5\obj\Debug\LR_5.csproj.CoreCompileInputs.cache
+C:\Users\ip521-14\source\repos\LR_5\LR_5\obj\Debug\LR_5.exe
+C:\Users\ip521-14\source\repos\LR_5\LR_5\obj\Debug\LR_5.pdb
