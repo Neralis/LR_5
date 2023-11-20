@@ -12,61 +12,46 @@ namespace LR_5
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            // Initialization code can go here if needed
+
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            double P = (double.Parse(textBox1.Text) * double.Parse(textBox2.Text) * double.Parse(textBox3.Text)) -
-                       (double.Parse(textBox4.Text) * double.Parse(textBox5.Text) * double.Parse(textBox6.Text) -
-                        (double.Parse(textBox7.Text) * double.Parse(textBox8.Text) * double.Parse(textBox9.Text)));
-
-            // Declare and initialize count outside the switch statement
-            double count = 0;
-
-            RadioButton rdbtn = GetCheckedRadioButton(); // Call the method to get the checked radio button
-
-            if (rdbtn != null)
+            try
             {
-                string currentButton = rdbtn.Name;
+                // Получаем значения из текстовых полей
+                double roomLength = double.Parse(textBox1.Text);
+                double roomWidth = double.Parse(textBox2.Text);
+                double roomHeight = double.Parse(textBox3.Text);
+                double windowLength = double.Parse(textBox4.Text);
+                double windowHeight = double.Parse(textBox5.Text);
+                int windowCount = int.Parse(textBox6.Text);
+                double doorLength = double.Parse(textBox7.Text);
+                double doorWidth = double.Parse(textBox8.Text);
+                int doorCount = int.Parse(textBox9.Text);
 
-                switch (currentButton)
-                {
-                    case "radioButton1":
-                        count = Math.Ceiling(P / (10 * 0.8)); // Округляем в большую сторону
-                        break;
-                    case "radioButton2":
-                        count = Math.Ceiling(P / (10 * 1));
-                        break;
-                    case "radioButton3":
-                        count = Math.Ceiling(P / (10 * 1.2));
-                        break;
-                    default:
-                        // Handle other cases if needed
-                        break;
-                }
+                // Получаем выбранную ширину рулона
+                double rollWidth = 0.0;
+                if (radioButton1.Checked)
+                    rollWidth = 0.8;
+                else if (radioButton2.Checked)
+                    rollWidth = 1.0;
+                else if (radioButton3.Checked)
+                    rollWidth = 1.2;
 
-                // Now you can use the 'count' variable as needed
-                // For example, you might want to display it in a label or perform other actions.
-                MessageBox.Show($"Нужно рулонов: {count}");
+                // Вычисляем площадь стен
+                double totalWallArea = 2 * (roomLength + roomWidth) * roomHeight - windowCount * windowLength * windowHeight - doorCount * doorLength * doorWidth;
+
+                // Вычисляем количество рулонов
+                double rollsNeeded = totalWallArea / (rollWidth * 10);
+
+                // Выводим результат
+                MessageBox.Show($"Необходимо {Math.Ceiling(rollsNeeded)} рулонов обоев.", "Расчет завершен", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-            else
+            catch (Exception ex)
             {
-                // Handle the case where no radio button is checked
-                MessageBox.Show("Выберите ширину рулона");
+                MessageBox.Show($"Произошла ошибка: {ex.Message}", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-        }
-
-        private RadioButton GetCheckedRadioButton()
-        {
-            foreach (Control control in Controls)
-            {
-                if (control is RadioButton radioButton && radioButton.Checked)
-                {
-                    return radioButton;
-                }
-            }
-            return null;
         }
     }
 }
